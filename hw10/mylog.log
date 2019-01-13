@@ -1,0 +1,8 @@
+Fri Jan 11 17:17:51 2019
+Line:132 File:mylogger.cc Funciton:info INFO This is info
+Fri Jan 11 17:17:51 2019
+Line:91 File:mylogger.cc Funciton:error ERROR This is error
+Fri Jan 11 17:17:51 2019
+Line:111 File:mylogger.cc Funciton:debug DEBUG This is debug
+Fri Jan 11 17:17:51 2019
+Line:70 File:mylogger.cc Funciton:warn WARN This is warn
