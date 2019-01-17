@@ -1,0 +1,16 @@
+./resources/xbeta.info.xml
+./resources/geekfan.xml
+./resources/ifanr.xml
+./resources/douban.book.review.xml
+./resources/portablesoft.xml
+./resources/feed.xbeta.info.xml
+./resources/36kr.xml
+./resources/geekpark.xml
+./resources/phonekr.xml
+./resources/jobbole.xml
+./resources/leiphone.xml
+./resources/iteye_news.xml
+./resources/songshuhui.xml
+./resources/coolshell.xml
+./resources/xubeng.xml
+./resources/techweb.xml

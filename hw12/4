@@ -1,0 +1,102 @@
+#include <iostream>
+#include <string.h>
+using std::cout;
+using std::endl;
+using std::cin;
+
+class String
+{
+public:
+	String() = default;
+	String(const char* str)
+		:_str(new char[strlen(str) + 1]())
+		{
+			strcpy(_str,str);
+		}
+	String(const String& str)
+	{
+		_str = new char[strlen(str._str) + 1]();
+		strcpy(_str,str._str);
+	}
+
+	~String()
+	{
+		delete _str;
+	}
+
+	String& operator=(const String&);
+	String& operator=(const char*);
+
+	String& operator+=(const String&);
+	String& operator+=(const char*);
+
+	void show()
+	{
+		cout << _str << endl;
+	}
+private:
+	char* _str;
+};
+String& String::operator=(const String& str)
+{
+	_str = new char[strlen(str._str) + 1]();
+	strcpy(_str,str._str);
+}
+String& String::operator=(const char* cstr)
+{
+	_str = new char[strlen(cstr) + 1]();
+	strcpy(_str,cstr);
+}
+String& String::operator+=(const String& str)
+{
+	int t_len = strlen(_str);
+	int s_len = strlen(str._str);
+
+	char* temp = new char[t_len]();
+	strcpy(temp,_str);
+	delete _str;
+	_str = new char[t_len + s_len +1]();
+	
+	for(int i =0;i <t_len;++i)
+	{
+		*(_str+i) = *(temp + i);
+	}
+	cout << _str << endl;
+	for(int i =t_len;i <t_len+s_len;++i)
+	{
+		*(_str+i) = *(str._str + (i - t_len));
+	}
+}
+String& String::operator+=(const char* str)
+{
+	int t_len = strlen(_str);
+	int s_len = strlen(str);
+
+	char* temp = new char[t_len]();
+	strcpy(temp,_str);
+	delete _str;
+	_str = new char[t_len + s_len +1]();
+	
+	for(int i =0;i <t_len;++i)
+	{
+		*(_str+i) = *(temp + i);
+	}
+	cout << _str << endl;
+	for(int i =t_len;i <t_len+s_len;++i)
+	{
+		*(_str+i) = *(str + (i - t_len));
+	}
+}
+int main()
+{
+	String s1("string 1");
+	s1.show();
+	String s2("string 2");
+	s2.show();
+	s2 += s1;
+	s2.show();
+	const char* cstr = "hellow";
+	s2 += cstr;
+	s2.show();
+	return 0;
+}
